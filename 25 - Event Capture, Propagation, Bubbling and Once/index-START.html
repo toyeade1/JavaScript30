@@ -44,6 +44,18 @@
 <button></button>
 <script>
 
+let divs = document.querySelectorAll("div");
+
+function logText(e) {
+  console.log(this.classList.value);
+  e.stopPropagation(); // this allows the  event to be the only one that is run
+};
+
+divs.forEach(div => div.addEventListener("click", logText, {capture: false})); // when iterating through the array it passes the logText function on each object in the array.
+// capture is false automatically which means it shows from the bottom of the nexted elements to the top, but if it was set to true, it would go from the top of the nest 
+// which in this case would be the first div
+
+
 </script>
 </body>
 </html>
